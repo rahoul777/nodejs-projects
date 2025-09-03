@@ -20,24 +20,34 @@ const server = http.createServer((req, res) => {
     }
 
     let result;
+    let message;
+
     switch (func) {
       case "add":
         result = a + b;
+        message = `Addition is: ${result}`;
         break;
       case "sub":
         result = a - b;
+        message = `Subtraction is: ${result}`;
         break;
       case "mul":
         result = a * b;
+        message = `Multiplication is: ${result}`;
         break;
       case "div":
-        result = b !== 0 ? a / b : "Error: Division by zero";
+        if (b === 0) {
+          message = "Error: Division by zero";
+        } else {
+          result = a / b;
+          message = `Division is: ${result}`;
+        }
         break;
       default:
-        result = "Invalid function. Use add, sub, mul, div.";
+        message = "Invalid function. Use add, sub, mul, div.";
     }
 
-    res.end(`Result: ${result}`);
+    res.end(message);
   } else {
     res.end("Welcome! Use /cal?func=add&a=10&b=5");
   }
