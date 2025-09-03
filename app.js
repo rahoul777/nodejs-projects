@@ -27,11 +27,11 @@ const server = http.createServer((req, res) => {
         result = a + b;
         message = `Addition is: ${result}`;
         break;
-      case "sub":
+      case "subtract":
         result = a - b;
         message = `Subtraction is: ${result}`;
         break;
-      case "mul":
+      case "multiple":
         result = a * b;
         message = `Multiplication is: ${result}`;
         break;
