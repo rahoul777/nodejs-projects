@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, { "Content-Type": "text/plain" });
 
   if (path === "/cal") {
-    const func = query.func;
+    const func = query.func || "div"; // default to division
     const a = parseFloat(query.a);
     const b = parseFloat(query.b);
 
@@ -49,7 +49,9 @@ const server = http.createServer((req, res) => {
 
     res.end(message);
   } else {
-    res.end("Welcome! Use /cal?func=add&a=10&b=5");
+    res.end(
+      "Welcome! Use /cal?func=add&a=10&b=5 or /cal?a=50&b=20 (for division)"
+    );
   }
 });
 
