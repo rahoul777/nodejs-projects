@@ -62,8 +62,8 @@
 
 // const { readAndWrite } = require("./fileModule");
 
-// // Call the function
-// readAndWrite();
+// app.js
+
 // Import fs module
 const fs = require("fs");
 
@@ -86,5 +86,17 @@ function readAndWrite() {
   });
 }
 
-// Call the function
+// Export the function
+module.exports = { readAndWrite };
+
+// --------------------------
+// Example usage of maths.js
+// --------------------------
+const { sum, multiply } = require("./maths");
+
+// Call readAndWrite
 readAndWrite();
+
+// Test math functions
+console.log("Sum of 5 and 10 is:", sum(5, 10));
+console.log("Multiplication of 5 and 10 is:", multiply(5, 10));
